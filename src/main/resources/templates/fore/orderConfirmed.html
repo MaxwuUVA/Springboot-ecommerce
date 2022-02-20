@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--1.通过上一步最后的确认支付按钮，提交到路径/orderConfirmed， 返回 orderConfirmed.html-->
+<!--2. 访问地址 foreorderConfirmed-->
+<!--3. 导致ForeRESTController.orderConfirmed()方法被调用-->
+<!--3.1 获取参数oid-->
+<!--3.2 根据参数oid获取Order对象o-->
+<!--3.3 修改对象o的状态为等待评价，修改其确认支付时间-->
+<!--3.4 更新到数据库-->
+<!--3.5 返回成功-->
+<!--2. orderConfirmed.html-->
+<!--与 register.html 相仿，orderConfirmed.html也包含了header.html, top.html, simpleSearch.html， footer.html 等公共页面。-->
+<!--中间是确认收货成功业务页面 orderConfirmedPage.html-->
+<!--3. orderConfirmedPage.html-->
+<!--显示"交易已经成功，卖家将收到您的货款。"-->
+<script>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="include/fore/header::html" ></head>
+<body>
+<div id="workingArea">
+    <div th:replace="include/fore/top::html" ></div>
+    <div th:replace="include/fore/simpleSearch::html" ></div>
+    <div th:replace="include/fore/cart/orderConfirmedPage::html" ></div>
+    <div th:replace="include/fore/footer::html" ></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<div class="pageDiv" th:fragment="html">
+	<nav>
+	  <ul class="pagination">
+		  <!--//这是首页，当 pagination.first 为真的时候，就表示当前是首页，那么首页对应的 li 的 class 就会是 disabled, 就点击不了。-->
+	    <li :class="{ disabled: pagination.first }">
+			<!--//当调用的时候传递的参数是 'first' 的时候，就调用 vue.list(0) 函数，并且传参数：0进去，这样就从服务器获取了首页的数据，vue.js 会自动刷新 table 里的数据。-->
+			<!--除了 first, 其他的 pre, next, last 分别表示 上一页，下一页，最后一页，都是类似的用法，就不赘述了。-->
+	      <a  href="#nowhere" @click="jump('first')">«</a>
+	    </li>
+	    <li :class="{ disabled: !pagination.hasPrevious }">
+	      <a  href="#nowhere" @click="jump('pre')">‹</a>
+	    </li>		    
+
+		<li  v-for="i in pagination.navigatepageNums">
+			<!--//中间这个遍历，就是遍历的 Page4Navigator 中新增加的 navigatepageNums 数组。 遍历出来之后，点击超链会调用 jumpByNumber 函数，并间接地调用adminHeader.html 里的jumpByNumber 函数：-->
+			<a href="#nowhere" @click="jumpByNumber(i-1)" >
+				{{i}}
+			</a>
+		</li>
+
+	    <li :class="{ disabled: !pagination.hasNext }">
+	      <a  href="#nowhere" @click="jump('next')">›</a>
+	    </li>
+	    <li :class="{ disabled: pagination.last }">
+	      <a  href="#nowhere" @click="jump('last')">»</a>
+	    </li>		    
+	  </ul>
+	</nav>    
+</div>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!--与 register.html 相仿，product.html也包含了header.html, top.html, search.html， modal4login.html，footer.html 等公共页面。-->
+<!--中间是产品业务页面 productPage.html-->
+<head th:include="include/fore/header::html" ></head>
+<body>
+<div id="workingArea">
+    <div th:replace="include/fore/top::html" ></div>
+    <div th:replace="include/fore/search::html" ></div>
+    <div th:replace="include/fore/product/productPage::html" ></div>
+    <div th:replace="include/fore/modal4login::html" ></div>
+    <div th:replace="include/fore/footer::html" ></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="include/fore/header::html" ></head>
+<body>
+<!--1. 点击结算后，跳转到路径/alipay方法，返回 alipay.html页面。-->
+<!--2. alipay.html :-->
+<!--与 register.html 相仿，alipay.html也包含了header.html, top.html， footer.html 等公共页面。-->
+<!--中间是确认支付业务页面 alipayPage.html-->
+<!--3. alipayPage.html:-->
+<!--显示总金额，并且让确认支付按钮跳转到页面 /payed页面，并带上oid和金额-->
+<div id="workingArea">
+    <div th:replace="include/fore/top::html" ></div>
+    <div th:replace="include/fore/simpleSearch::html" ></div>
+    <div th:replace="include/fore/cart/alipayPage::html" ></div>
+    <div th:replace="include/fore/footer::html" ></div>
+</div>
+</body>
+</html>

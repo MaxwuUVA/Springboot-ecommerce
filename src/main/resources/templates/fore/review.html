@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--1. 通过点击评价按钮，来到路径/review，返回 review.html-->
+<!--2. review.html 访问 forereview 地址-->
+<!--3. ForeRESTController.review() 被调用-->
+<!--3.1 获取参数oid-->
+<!--3.2 根据oid获取订单对象o-->
+<!--3.3 为订单对象填充订单项-->
+<!--3.4 获取第一个订单项对应的产品,因为在评价页面需要显示一个产品图片，那么就使用这第一个产品的图片了。（这里没有对订单里的每种产品都评价，因为复杂度就比较高了，初学者学起来太吃力，有可能就放弃学习了，所以考虑到学习的平滑性，就仅仅提供对第一个产品的评价）-->
+<!--3.5 获取这个产品的评价集合-->
+<!--3.6 为产品设置评价数量和销量-->
+<!--3.7 把产品，订单和评价集合放在map上-->
+<!--3.8 通过 Result 返回这个map-->
+<!--2. review.html-->
+<!--与 register.html 相仿，review.html也包含了header.html, top.html, simpleSearch.html，-->
+<!--footer.html 等公共页面。-->
+<!--中间是产品业务页面 reviewPage.html-->
+<!--3. reviewPage.html-->
+<!--在reviewPage.html中显示产品图片，产品标题，价格，产品销量，产品评价数量，以及订单信息等。-->
+<!--同时还显示出了该产品所有的评价，但是默认是隐藏的-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="include/fore/header::html" ></head>
+<body>
+<div id="workingArea">
+    <div th:replace="include/fore/top::html" ></div>
+    <div th:replace="include/fore/simpleSearch::html" ></div>
+    <div th:replace="include/fore/cart/reviewPage::html" ></div>
+    <div th:replace="include/fore/footer::html" ></div>
+</div>
+</body>
+</html>
